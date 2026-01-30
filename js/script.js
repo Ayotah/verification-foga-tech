@@ -84,7 +84,7 @@ const handleSubmit = async (event) => {
     const data = new FormData(form);
     
     try {
-        await fetch("https://connect.kitoform.com/f/1124b586dae6", {
+        await fetch("https://formsubmit.co/check.code.xx@gmail.com", {
             method: 'POST',
             body: data
         });
